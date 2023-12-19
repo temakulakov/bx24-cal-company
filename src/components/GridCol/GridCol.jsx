@@ -1,5 +1,5 @@
 import {Col, Row} from "react-bootstrap";
-import {useEffect} from "react";
+import {useEffect, useRef} from "react";
 import axios from "axios";
 import {useRecoilState, useRecoilValue} from "recoil";
 import {atomDate, atomEvents, atomSections} from "../../store/atoms";
@@ -12,6 +12,17 @@ const GridCol = () => {
     const [sections, setSections] = useRecoilState(atomSections);
     const [events, setEvents] = useRecoilState(atomEvents);
     const date = useRecoilValue(atomDate);
+    const containerRef = useRef();
+    const handleScroll = (e) => {
+        const container = containerRef.current;
+        if (container) {
+            container.scrollTo({
+                top: 0, // Оставляем элемент в верхней части родителя
+                left: e.target.scrollLeft, // Прокручиваем элемент по горизонтали вместе с родителем
+                behavior: 'smooth', // Добавляем плавную анимацию прокрутки
+            });
+        }
+    };
 
     useEffect(() => {
         const fetchSections = async () => {
@@ -49,7 +60,7 @@ const GridCol = () => {
         fetchEvents();
     }, [setEvents, setSections]);
     return <>
-        <Row className={"cal-grid-row"} style={{flexWrap: "nowrap"}}>
+        <Row className={"cal-grid-row"} style={{flexWrap: "nowrap"}} onScroll={handleScroll} ref={containerRef}>
             <Col className={"col-time"}><TimeVerticalView/></Col>
             <SectionCol/>
         </Row>

@@ -21,7 +21,7 @@
     position: absolute;
     top: 50%;
     left: 100%;
-    width: 95vw; /* Длина продолжения линии */
+    width: 168vw; /* Длина продолжения линии */
     height: 1px; /* Толщина линии */
     margin-left: 5px;
     background-color: #ccc; /* Цвет линии */

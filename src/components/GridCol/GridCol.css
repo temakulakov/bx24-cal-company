@@ -17,8 +17,9 @@
 .cal-grid-row {
     margin: 0;
     padding: 0 !important;
-    overflow: scroll;
     max-width: 100%;
     margin-top: 80px !important;
     flex-wrap: nowrap;
+    overflow-x: auto; /* Разрешить горизонтальную прокрутку при необходимости */
+    overflow-y: scroll; /* Включить вертикальную прокрутку всегда */
 }
