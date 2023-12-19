@@ -1,0 +1,1 @@
+export const URL_KEY = "https://intranet.gctm.ru/rest/1552/jx5itnlnk81dxcol/";

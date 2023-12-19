@@ -1,50 +1,24 @@
-import {atom} from 'recoil';
-export const rangeArrayEvents = atom({
-    key: 'rangeArrayEvents',
-    default: []
+import {atom} from "recoil";
+
+export const atomLoading = atom({
+    key: 'loading',
+    default: true,
 });
 
-export const dateRange = atom({
-    key: 'dateRange',
+export const atomDate = atom({
+    key: 'date',
     default: {
-        dateFrom: new Date().getFullYear() + "-" + (new Date().getMonth() + 1) + "-" + new Date().getDate(),
-        dateTo: new Date().getFullYear() + "-" + (new Date().getMonth() + 1) + "-" + new Date().getDate()
+        dateFrom: new Date().getDate() + "-" + (new Date().getMonth() + 1) + "-" + new Date().getFullYear(),
+        dateTo: new Date().getDate() + "-" + (new Date().getMonth() + 1) + "-" + new Date().getFullYear()
     }
 });
 
-export const loadCal = atom({
-    key: 'loadCal',
-    default: true
+export const atomEvents = atom({
+    key: 'events',
+    default: []
+});
+
+export const atomSections = atom({
+    key: 'sections',
+    default: []
 })
-
-export const accessEdit = atom({
-    key: 'accessEdit',
-    default: false
-});
-
-export const selectedEvent = atom({
-    key: 'selectedEvent',
-    default: false
-});
-
-export const openedSelector = atom({
-    key: "openedSelector",
-    data: false
-});
-
-export const openedModal = atom({
-    key: "openedModal",
-    data: false
-});
-
-export const sectionsArray = atom({
-    key: "sectionsArray",
-    data: []
-});
-
-export const reports = atom({
-    key: "reports",
-    data: false
-})
-
-

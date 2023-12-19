@@ -1,17 +1,17 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { useRecoilState } from 'recoil';
-import {atomSections} from "./store/atoms"; // Предполагается, что у вас есть атом с именем dataState
 
-const YourComponent = () => {
-    const [data, setData] = useRecoilState(atomSections);
+const TimeCol = () => {
+    const [data, setData] = useState(null);
 
     useEffect(() => {
         const fetchData = async () => {
             try {
                 const response = await axios.post(
-                    'https://intranet.gctm.ru/rest/1552/jx5itnlnk81dxcol/calendar.section.get?type=company_calendar&ownerId',
+                    'https://intranet.gctm.ru/rest/1552/jx5itnlnk81dxcol/calendar.section.get',
                     {
+                        type: "company_calendar",
+                        ownerId: ""
                         // Данные для отправки (если требуется)
                         // Например:
                         // key: 'value',
@@ -24,7 +24,7 @@ const YourComponent = () => {
         };
 
         fetchData();
-    }, [setData]);
+    }, []);
 
     return (
         <div>
@@ -37,4 +37,4 @@ const YourComponent = () => {
     );
 };
 
-export default YourComponent;
+export default TimeCol;
