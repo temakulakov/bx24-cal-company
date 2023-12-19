@@ -1,0 +1,28 @@
+/* Стили для компонента отображения времени */
+.time-vertical-view {
+    width: 50px; /* Ширина контейнера времени */
+    display: flex;
+    flex-direction: column;
+    position: relative; /* Добавляем позиционирование для использования псевдоэлемента */
+    /* Дополнительные стили, такие как цвет фона, отступы и другие свойства */
+}
+
+.time-slot {
+    padding: 5px 0;
+    /*border-bottom: 1px solid #ccc; !* Граница между часами *!*/
+    text-align: right;
+    position: relative; /* Добавляем позиционирование для использования псевдоэлемента */
+    /* Дополнительные стили */
+}
+
+/* Псевдоэлемент для продолжения линии-разделителя */
+.time-slot::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 100%;
+    width: 95vw; /* Длина продолжения линии */
+    height: 1px; /* Толщина линии */
+    margin-left: 5px;
+    background-color: #ccc; /* Цвет линии */
+}

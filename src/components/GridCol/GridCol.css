@@ -1,12 +1,15 @@
 .col-grid {
     display: flex;
-    height: 700px;
-    width: 100% ;
+    height: 100%;
+    min-width: fit-content;
+    width: fit-content;
+    max-width: fit-content;
     background-color: aqua;
+
 }
 .col-time {
     display: flex;
-    height: 700px;
+    height: fit-content;
     width: 100px !important;
     max-width: 100px !important;
     background-color: #7c8d8d;
@@ -14,4 +17,8 @@
 .cal-grid-row {
     margin: 0;
     padding: 0 !important;
+    overflow: scroll;
+    max-width: 100%;
+    margin-top: 80px !important;
+    flex-wrap: nowrap;
 }

@@ -5,6 +5,8 @@ import {useRecoilState, useRecoilValue} from "recoil";
 import {atomDate, atomEvents, atomSections} from "../../store/atoms";
 import "./GridCol.css"
 import ListSections from "../ListSections/ListSections";
+import TimeVerticalView from "../TimeVerticalView/TimeVerticalView";
+import SectionCol from "../SectionCol/SectionCol";
 
 const GridCol = () => {
     const [sections, setSections] = useRecoilState(atomSections);
@@ -47,10 +49,9 @@ const GridCol = () => {
         fetchEvents();
     }, [setEvents, setSections]);
     return <>
-        <Row className={"cal-grid-row"}><ListSections/></Row>
-        <Row className={"cal-grid-row"}>
-            <Col className={"col-time"}></Col>
-            <Col className={"col-grid"}></Col>
+        <Row className={"cal-grid-row"} style={{flexWrap: "nowrap"}}>
+            <Col className={"col-time"}><TimeVerticalView/></Col>
+            <SectionCol/>
         </Row>
     </>
 };

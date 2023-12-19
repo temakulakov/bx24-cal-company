@@ -5,6 +5,7 @@ import {atomDate, atomEvents, atomSections} from "./store/atoms";
 import {Col, Container, Row} from "react-bootstrap"; // Предполагается, что у вас есть атом с именем dataState
 import "./App.css";
 import GridCol from "./components/GridCol/GridCol";
+import SkeletonLoader from "./components/SkeletonLoader/SkeletonLoader";
 
 const YourComponent = () => {
     const events = useRecoilValue(atomEvents);
@@ -13,10 +14,10 @@ const YourComponent = () => {
             {events ? (
                     <Container>
                         <Row className={"root-title"}>   {/*Заголовок*/}
-
+                            <SkeletonLoader/>
                         </Row>
                         <Row className={"root-controls"}>   {/*Меню контроля*/}
-
+                            <SkeletonLoader/>
                         </Row>
                         <Row className={"root-grid"}>   {/*Сетка календаря*/}
                             <GridCol/>
