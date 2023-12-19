@@ -1,0 +1,17 @@
+.col-grid {
+    display: flex;
+    height: 700px;
+    width: 100% ;
+    background-color: aqua;
+}
+.col-time {
+    display: flex;
+    height: 700px;
+    width: 100px !important;
+    max-width: 100px !important;
+    background-color: #7c8d8d;
+}
+.cal-grid-row {
+    margin: 0;
+    padding: 0 !important;
+}

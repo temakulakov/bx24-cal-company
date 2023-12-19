@@ -1,39 +1,44 @@
 import React, { useEffect } from 'react';
 import axios from 'axios';
-import { useRecoilState } from 'recoil';
-import {atomSections} from "./store/atoms"; // Предполагается, что у вас есть атом с именем dataState
+import {useRecoilValue} from 'recoil';
+import {atomDate, atomEvents, atomSections} from "./store/atoms";
+import {Col, Container, Row} from "react-bootstrap"; // Предполагается, что у вас есть атом с именем dataState
+import "./App.css";
+import GridCol from "./components/GridCol/GridCol";
 
 const YourComponent = () => {
-    const [data, setData] = useRecoilState(atomSections);
-
-    useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const response = await axios.post(
-                    'https://intranet.gctm.ru/rest/1552/jx5itnlnk81dxcol/calendar.section.get?type=company_calendar&ownerId',
-                    {
-                        // Данные для отправки (если требуется)
-                        // Например:
-                        // key: 'value',
-                    }
-                );
-                setData(response.data.result);
-            } catch (error) {
-                console.error('Ошибка при получении данных:', error);
-            }
-        };
-
-        fetchData();
-    }, [setData]);
-
+    const events = useRecoilValue(atomEvents);
     return (
-        <div>
-            {data ? (
-                <pre>{JSON.stringify(data, null, 2)}</pre>
+        <>
+            {events ? (
+                    <Container>
+                        <Row className={"root-title"}>   {/*Заголовок*/}
+
+                        </Row>
+                        <Row className={"root-controls"}>   {/*Меню контроля*/}
+
+                        </Row>
+                        <Row className={"root-grid"}>   {/*Сетка календаря*/}
+                            <GridCol/>
+                        </Row>
+                    </Container>
             ) : (
-                <p>Загрузка данных...</p>
+                <Container>
+                    <Row>   {/*Заголовок*/}
+
+                    </Row>
+                    <Row>   {/*Меню контроля*/}
+
+                    </Row>
+                    <Row>   {/*Меню контроля*/}
+
+                    </Row>
+                    <Row>   {/*Сетка календаря*/}
+
+                    </Row>
+                </Container>
             )}
-        </div>
+        </>
     );
 };
 
