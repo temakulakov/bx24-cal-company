@@ -16,15 +16,17 @@
     min-height: 100%;
     border-right: 1px solid #ccc;
 
+    overflow-x: auto; /* Разрешить горизонтальную прокрутку при необходимости */
+    overflow-y: scroll; /* Включить вертикальную прокрутку всегда */
 }
 
 .section-title {
-    position: fixed;
+    position: sticky;
     width: 200px !important;
     height: 90px !important;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
-    top: 90px;
+    top: -20px;
 }
